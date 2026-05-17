@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .results-box {
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            margin: 60px auto;
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+        }
+        .score-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #3498db;
+            margin: 20px 0 10px;
+        }
+        .score-label {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        .score-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 30px;
+        }
+        .try-again-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .try-again-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .scores-link {
+            display: block;
+            margin-top: 16px;
+            color: #3498db;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>TECH QUIZ</h1>
+
+    <div class="results-box">
+        <p style="font-size:1.1rem; color:#555;" id="player-greeting">Results</p>
+        <div class="score-number" id="score-display">—</div>
+        <p class="score-label">out of 10</p>
+        <p class="score-message" id="score-message">—</p>
+
+        <a href="index.html" class="try-again-btn">🔄 Try Again</a>
+        <a href="scores.php" class="scores-link">📋 View Scores Board</a>
+    </div>
+
+    <script>
+        // Read the score and name passed via sessionStorage from index.html
+        const score = parseInt(sessionStorage.getItem('quizScore') ?? '-1');
+        const name  = sessionStorage.getItem('playerName') ?? '';
+
+        if (score === -1) {
+            document.getElementById('score-display').textContent = '?';
+            document.getElementById('score-message').textContent = 'No score found — did you complete the quiz?';
+        } else {
+            document.getElementById('score-display').textContent = score;
+
+            if (name) {
+                document.getElementById('player-greeting').textContent = `Well done, ${name}!`;
+            }
+
+            let message = '';
+            if (score >= 8) {
+                message = 'Excellent! 🏆';
+            } else if (score >= 5) {
+                message = 'Good job! 👍';
+            } else {
+                message = 'Keep practising! 📚';
+            }
+            document.getElementById('score-message').textContent = message;
+
+            sessionStorage.removeItem('quizScore');
+            sessionStorage.removeItem('playerName');
+        }
+    </script>
+</body>
+</html>

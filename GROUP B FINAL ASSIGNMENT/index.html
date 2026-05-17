@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TECH QUIZ</h1>
+    <p>Technology is the application of scientific knowledge, tools, techniques and systems to solve problems, achieve practical goals and extend human capabilities. One of the key examples of technology are digital devices such as computers. In this quiz we are going to test how well you know your computer.</p>
+   
+    <p><strong>Instructions:</strong> Click the button below to start the quiz. You will have 2 and a half minutes to answer all the questions i.e 15 seconds for each question. The whole quiz will be marked out of 10.</p>
+    <p>Good luck!</p> 
+    <p>🍀😘</p>
+
+    <div id="quiz-container">
+        <button id="start-btn">Start Quiz</button><br>
+        <div id="timer">Time Left: 02:30</div>
+    </div><br>
+
+    <!-- Score Modal (required by script.js) -->
+    <div id="score-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:12px; padding:40px; text-align:center; max-width:380px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <p id="modal-score" style="font-size:1.4rem; font-weight:bold; color:#2c3e50; margin-bottom:10px;"></p>
+            <p id="modal-message" style="font-size:1.1rem; color:#555; margin-bottom:24px;"></p>
+            <button onclick="document.getElementById('score-modal').style.display='none'; location.reload()" style="background:#3498db; color:#fff; border:none; padding:10px 28px; border-radius:100px; font-size:1rem; cursor:pointer;">Try Again</button>
+        </div>
+    </div>
+
+    
+    <form id="quiz-form" action="scores.php" method="post">
+
+        <div class="question-box">
+            <p>Q1. What does CPU stand for?</p>
+            <input type="radio" id="qn1a" name="q1" value="Central Processing Unit">
+            <label for="qn1a">Central Processing Unit</label><br>
+            <input type="radio" id="qn1b" name="q1" value="Computer Personal Unit">
+            <label for="qn1b">Computer Personal Unit</label><br>
+            <input type="radio" id="qn1c" name="q1" value="Central Program Utility">
+            <label for="qn1c">Central Program Utility</label><br>
+            <input type="radio" id="qn1d" name="q1" value="Core Processing Unit">
+            <label for="qn1d">Core Processing Unit</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q2. Which of the following is a type of a volatile memory?</p>
+            <input type="radio" id="qn2a" name="q2" value="SSD">
+            <label for="qn2a">SSD</label><br>
+            <input type="radio" id="qn2b" name="q2" value="Hard Disk Drive">
+            <label for="qn2b">Hard Disk Drive</label><br>
+            <input type="radio" id="qn2c" name="q2" value="RAM">
+            <label for="qn2c">RAM</label><br>
+            <input type="radio" id="qn2d" name="q2" value="ROM">
+            <label for="qn2d">ROM</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q3. What is the function of an operating system?</p>
+            <input type="radio" id="qn3a" name="q3" value="Store user files permanently">
+            <label for="qn3a">Store user files permanently</label><br>
+            <input type="radio" id="qn3b" name="q3" value="Manage hardware and software resources">
+            <label for="qn3b">Manage hardware and software resources</label><br>
+            <input type="radio" id="qn3c" name="q3" value="Browse the internet">
+            <label for="qn3c">Browse the internet</label><br>
+            <input type="radio" id="qn3d" name="q3" value="Run only one program at a time">
+            <label for="qn3d">Run only one program at a time</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q4. Which number system does a computer use internally?</p>
+            <input type="radio" id="qn4a" name="q4" value="Decimal(Base 10)">
+            <label for="qn4a">Decimal(Base 10)</label><br>
+            <input type="radio" id="qn4b" name="q4" value="Hexadecimal(Base 16)">
+            <label for="qn4b">Hexadecimal(Base 16)</label><br>
+            <input type="radio" id="qn4c" name="q4" value="Octal(Base 8)">
+            <label for="qn4c">Octal(Base 8)</label><br>
+            <input type="radio" id="qn4d" name="q4" value="Binary(Base 2)">
+            <label for="qn4d">Binary(Base 2)</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q5. What does HTML stand for?</p>
+            <input type="radio" id="qn5a" name="q5" value="Hyper Text Markup Language">
+            <label for="qn5a">Hyper Text Markup Language</label><br>
+            <input type="radio" id="qn5b" name="q5" value="High Transfer Machine Language">
+            <label for="qn5b">High Transfer Machine Language</label><br>
+            <input type="radio" id="qn5c" name="q5" value="Hyperlink and Text Management Layer">
+            <label for="qn5c">Hyperlink and Text Management Layer</label><br>
+            <input type="radio" id="qn5d" name="q5" value="Home Tool Markup Language">
+            <label for="qn5d">Home Tool Markup Language </label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q6. Which device converts digital signals to analog signals for transmission over phone lines?</p>
+            <input type="radio" id="qn6a" name="q6" value="Router">
+            <label for="qn6a">Router</label><br>
+            <input type="radio" id="qn6b" name="q6" value="Modem">
+            <label for="qn6b">Modem</label><br>
+            <input type="radio" id="qn6c" name="q6" value="Switch">
+            <label for="qn6c">Switch</label><br>
+            <input type="radio" id="qn6d" name="q6" value="Network Card">
+            <label for="qn6d">Network Card</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q7. What is the purpose of an ip address?</p>
+            <input type="radio" id="qn7a" name="q7" value="Store website data">
+            <label for="qn7a">Store website data</label><br>
+            <input type="radio" id="qn7b" name="q7" value="Encrypt internet traffic">
+            <label for="qn7b">Encrypt internet traffic</label><br>
+            <input type="radio" id="qn7c" name="q7" value="Uniquely identify a device on a network">
+            <label for="qn7c">Uniquely identify a device on a network</label><br>
+            <input type="radio" id="qn7d" name="q7" value="Speed up data processing">
+            <label for="qn7d">Speed up data processing</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q8. Which of the following is NOT an example of an output device?</p>
+            <input type="radio" id="qn8a" name="q8" value="Monitor">
+            <label for="qn8a">Monitor</label><br>
+            <input type="radio" id="qn8b" name="q8" value="Printer">
+            <label for="qn8b">Printer</label><br>
+            <input type="radio" id="qn8c" name="q8" value="Keyboard">
+            <label for="qn8c">Keyboard</label><br>
+            <input type="radio" id="qn8d" name="q8" value="Speaker">
+            <label for="qn8d">Speaker</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q9. In programming, what is a 'loop' used for?</p>
+            <input type="radio" id="qn9a" name="q9" value="To stop a program immediately">
+            <label for="qn9a">To stop a program immediately</label><br>
+            <input type="radio" id="qn9b" name="q9" value="To repeat a block of code multiple times">
+            <label for="qn9b">To repeat a block of code multiple times</label><br>
+            <input type="radio" id="qn9c" name="q9" value="To connect two programs together">
+            <label for="qn9c">To connect two programs together</label><br>
+            <input type="radio" id="qn9d" name="q9" value="To store data permanently">
+            <label for="qn9d">To store data permanently</label>
+        </div><br>
+
+        <div class="question-box">
+            <p>Q10. What does 'HTTP' stand for in a web address?</p>
+            <input type="radio" id="qn10a" name="q10" value="HyperText Transfer Protocol">
+            <label for="qn10a">HyperText Transfer Protocol</label><br>
+            <input type="radio" id="qn10b" name="q10" value="High Traffic Text Processor">
+            <label for="qn10b">High Traffic Text Processor</label><br>
+            <input type="radio" id="qn10c" name="q10" value="Hyperlink Transfer and Tracking Protocol">
+            <label for="qn10c">Hyperlink Transfer and Tracking Protocol</label><br>
+            <input type="radio" id="qn10d" name="q10" value="Home Terminal Transfer Program">
+            <label for="qn10d">Home Terminal Transfer Program</label>
+        </div><br>
+
+        <div class="question-box" style="background-color:#eaf4fd;">
+            <p><strong>Enter your name before submitting:</strong></p>
+            <input type="text" id="player-name-input" name="player_name" placeholder="Your name..." required
+                style="width:100%; padding:10px; font-size:1rem; border:2px solid #3498db; border-radius:6px; margin-top:8px; box-sizing:border-box;">
+        </div><br>
+
+        <!-- Hidden field — JS fills this in with the calculated score -->
+        <input type="hidden" name="score" id="score-hidden" value="0">
+         
+        <button type="submit">Submit Quiz</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
